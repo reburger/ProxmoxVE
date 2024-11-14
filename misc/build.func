@@ -668,6 +668,8 @@ description() {
     <i class="fa fa-exclamation-circle fa-fw" style="color: #f5f5f5;"></i>
     <a href='https://github.com/community-scripts/ProxmoxVE/issues' target='_blank' rel='noopener noreferrer' style='text-decoration: none; color: #00617f;'>Issues</a>
   </span>
+  IP Address: $IP
+  ${BGN}Automatic Login${CL}
 </div>
 EOF
 )
