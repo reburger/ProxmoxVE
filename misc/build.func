@@ -639,6 +639,7 @@ EOF'
 
 # This function sets the description of the container.
 description() {
+  PORT="$1"
   IP=$(pct exec "$CTID" ip a s dev eth0 | awk '/inet / {print $2}' | cut -d/ -f1)
 
   # Generate LXC Description
@@ -672,7 +673,10 @@ description() {
   </span>
   </p>
   <span style='margin: 0 10px;'>
-    <a href='http://$IP' target='_blank' rel='noopener noreferrer' style='text-decoration: none; color: #00617f;'>Application Web Site</a>
+    <a href='http://$IP:$PORT' target='_blank' rel='noopener noreferrer' style='text-decoration: none; color: #00617f;'>http://$IP:$PORT</a>
+  </span>
+  <span style='margin: 0 10px;'>
+    <a href='http://$IP:$PORT' target='_blank' rel='noopener noreferrer' style='text-decoration: none; color: #00617f;'>App Web Site</a>
   </span>
 </div>
 EOF
