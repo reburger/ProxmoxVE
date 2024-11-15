@@ -20,6 +20,11 @@ EOF
 header_info
 echo -e "Loading..."
 APP="Memos"
+
+PORT=(curl -s 'https://raw.githubusercontent.com/reburger/ProxmoxVE/refs/heads/main/json/memos.json' | python3 -c "import sys, json; print(json.load(sys.stdin)['interface_port'])")
+WEBSITE=(curl -s 'https://raw.githubusercontent.com/reburger/ProxmoxVE/refs/heads/main/json/memos.json' | python3 -c "import sys, json; print(json.load(sys.stdin)['website'])")
+APPDESC=(curl -s 'https://raw.githubusercontent.com/reburger/ProxmoxVE/refs/heads/main/json/memos.json' | python3 -c "import sys, json; print(json.load(sys.stdin)['description'])")
+
 var_disk="7"
 var_cpu="2"
 var_ram="2048"
