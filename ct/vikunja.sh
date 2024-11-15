@@ -21,6 +21,9 @@ EOF
 header_info
 echo -e "Loading..."
 APP="Vikunja"
+PORT=$(python3 -c "import requests;r=requests.get('https://raw.githubusercontent.com/reburger/ProxmoxVE/refs/heads/main/json/vikunja.json');print(r.json()['interface_port'])")
+WEBSITE=$(python3 -c "import requests;r=requests.get('https://raw.githubusercontent.com/reburger/ProxmoxVE/refs/heads/main/json/vikunja.json');print(r.json()['website'])")
+APPDESC=$(python3 -c "import requests;r=requests.get('https://raw.githubusercontent.com/reburger/ProxmoxVE/refs/heads/main/json/vikunja.json');print(r.json()['description'])")
 var_disk="4"
 var_cpu="1"
 var_ram="1024"
