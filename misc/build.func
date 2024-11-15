@@ -639,7 +639,7 @@ EOF'
 
 # This function sets the description of the container.
 description() {
-  PORT="$1"
+  PORT=(curl -s 'https://raw.githubusercontent.com/reburger/ProxmoxVE/refs/heads/main/json/$1.json' | python3 -c "import sys, json; print(json.load(sys.stdin)['interface_port'])")
   IP=$(pct exec "$CTID" ip a s dev eth0 | awk '/inet / {print $2}' | cut -d/ -f1)
 
   # Generate LXC Description
