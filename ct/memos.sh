@@ -81,7 +81,7 @@ exit
 
 start
 build_container
-description 9030
+description memos
 
 msg_ok "Completed Successfully!\n"
 echo -e "${APP} should be reachable by going to the following URL.
