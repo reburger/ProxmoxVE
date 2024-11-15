@@ -24,7 +24,7 @@ json=(curl -s 'https://raw.githubusercontent.com/reburger/ProxmoxVE/refs/heads/m
 APP="Memos"
 PORT=(python3 -c "import sys, json; print(json.load($json)['interface_port'])")
 WEBSITE=(python3 -c "import sys, json; print(json.load($json)['website'])")
-APPDESC=(python3 -c "import sys, json; print(json.load(json)['description'])")
+APPDESC=(python3 -c "import sys, json; print(json.load($json)['description'])")
 var_disk="7"
 var_cpu="2"
 var_ram="2048"
@@ -36,7 +36,7 @@ catch_errors
 
 function default_settings() {
   CT_TYPE="1"
-  PW="CanYou?"
+  PW="CanYou"
   CT_ID=$NEXTID
   HN=$NSAPP
   DISK_SIZE="$var_disk"
