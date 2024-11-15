@@ -640,6 +640,8 @@ EOF'
 # This function sets the description of the container.
 description() {
   PORT=(curl -s 'https://raw.githubusercontent.com/reburger/ProxmoxVE/refs/heads/main/json/$1.json' | python3 -c "import sys, json; print(json.load(sys.stdin)['interface_port'])")
+  WEBSITE=(curl -s 'https://raw.githubusercontent.com/reburger/ProxmoxVE/refs/heads/main/json/$1.json' | python3 -c "import sys, json; print(json.load(sys.stdin)['website'])")
+  APPDESC=(curl -s 'https://raw.githubusercontent.com/reburger/ProxmoxVE/refs/heads/main/json/$1.json' | python3 -c "import sys, json; print(json.load(sys.stdin)['description'])")
   IP=$(pct exec "$CTID" ip a s dev eth0 | awk '/inet / {print $2}' | cut -d/ -f1)
 
   # Generate LXC Description
@@ -671,12 +673,23 @@ description() {
     <a href='https://github.com/community-scripts/ProxmoxVE/issues' target='_blank' rel='noopener noreferrer' style='text-decoration: none; color: #00617f;'>Issues</a>
   </span>
   </p>
+  <p>
   <span style='margin: 0 10px;'>
     <a href='http://$IP:$PORT' target='_blank' rel='noopener noreferrer' style='text-decoration: none; color: #00617f;'>http://$IP:$PORT</a>
   </span>
   <span style='margin: 0 10px;'>
     <a href='http://$IP:$PORT' target='_blank' rel='noopener noreferrer' style='text-decoration: none; color: #00617f;'>App Web Site</a>
   </span>
+  </p>
+  <p>
+  <span style='margin: 0 10px;'>
+    <a href='$WEBSITE' target='_blank' rel='noopener noreferrer' style='text-decoration: none; color: #00617f;'>Web Site</a>
+  </span>
+  </p>
+  <p>
+    $APPDESC
+  </p>
+
 </div>
 EOF
 )
