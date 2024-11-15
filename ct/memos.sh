@@ -20,11 +20,10 @@ EOF
 header_info
 echo -e "Loading..."
 
-json=(curl -s 'https://raw.githubusercontent.com/reburger/ProxmoxVE/refs/heads/main/json/memos.json')
 APP="Memos"
-PORT=(python3 -c "import sys, json; print(json.load($json)['interface_port'])")
-WEBSITE=(python3 -c "import sys, json; print(json.load($json)['website'])")
-APPDESC=(python3 -c "import sys, json; print(json.load($json)['description'])")
+PORT=$(python3 -c "import requests;r=requests.get('https://raw.githubusercontent.com/reburger/ProxmoxVE/refs/heads/main/json/memos.json');print(r.json()['interface_port'])")
+WEBSITE=$(python3 -c "import requests;r=requests.get('https://raw.githubusercontent.com/reburger/ProxmoxVE/refs/heads/main/json/memos.json');print(r.json()['website'])")
+APPDESC=$(python3 -c "import requests;r=requests.get('https://raw.githubusercontent.com/reburger/ProxmoxVE/refs/heads/main/json/memos.json');print(r.json()['description'])")
 var_disk="7"
 var_cpu="2"
 var_ram="2048"
