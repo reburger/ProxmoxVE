@@ -20,6 +20,9 @@ EOF
 header_info
 echo -e "Loading..."
 APP="AdventureLog"
+PORT=$(python3 -c "import requests;r=requests.get('https://raw.githubusercontent.com/reburger/ProxmoxVE/refs/heads/main/json/adventurelog.json');print(r.json()['interface_port'])")
+WEBSITE=$(python3 -c "import requests;r=requests.get('https://raw.githubusercontent.com/reburger/ProxmoxVE/refs/heads/main/json/adventurelog.json');print(r.json()['website'])")
+APPDESC=$(python3 -c "import requests;r=requests.get('https://raw.githubusercontent.com/reburger/ProxmoxVE/refs/heads/main/json/adventurelog.json');print(r.json()['description'])")
 var_disk="7"
 var_cpu="2"
 var_ram="2048"
