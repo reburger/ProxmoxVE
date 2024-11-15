@@ -680,9 +680,10 @@ description() {
   </p>
   <p>
   <span style='margin: 0 10px;'>
-    <a href='$WEBSITE' target='_blank' rel='noopener noreferrer' style='text-decoration: none; color: #00617f;'>Product / Project Web Site</a>
+    <a href='$WEBSITE' target='_blank' rel='noopener noreferrer' style='text-decoration: none; color: #00617f;'>$APP Product/Project Web Site</a>
   </span>
   </p>
+  <hr/>
   <p>
     $APPDESC
   </p>
